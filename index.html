@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DSGN - Art Director</title>
+  <title>DSGN - Portfolio</title>
   <!-- GSAP and plugins -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"></script>
@@ -28,7 +28,7 @@
       overflow-x: hidden;
       position: relative;
     }
-    /* Navigation (merged style) */
+    /* Navigation */
     .nav {
       display: flex;
       justify-content: space-between;
@@ -55,7 +55,7 @@
     .nav-links a:hover {
       color: #a3b3c9;
     }
-    /* Hero Section (from your second code) */
+    /* Hero Section */
     .hero {
       height: 100vh;
       display: flex;
@@ -101,7 +101,7 @@
       letter-spacing: 3px;
       z-index: 2;
     }
-    /* Sections (About, Projects, etc.) */
+    /* Generic Section spacing */
     section {
       padding: 10rem 8% 5rem 8%;
       position: relative;
@@ -114,20 +114,28 @@
     }
     /* About Section */
     #about {
-      background: rgba(119,141,169,0.05);
-      border-radius: 15px;
-      margin-bottom: 5rem;
-      padding: 3rem;
+      background: none;
+      border: none;
+      padding: 10rem 8% 5rem 8%;
+      text-align: center;
+      min-height: 300px; /* Ensure enough height for the content */
     }
-    #about h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+    .about-title {
+      font-size: 4rem;
+      font-weight: 700;
+      opacity: 0; /* Start hidden */
     }
-    #about p {
-      font-size: 1.2rem;
-      line-height: 1.6;
+    .about-description {
+      font-size: 1.5rem;
+      opacity: 0; /* Start hidden */
+      margin-top: 2rem;
+      min-height: 150px; /* Reserve space for typewriter text */
+      white-space: pre-wrap; /* Respect line breaks */
     }
     /* Projects Section */
+    #projects {
+      margin-bottom: 5rem;
+    }
     .project-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -196,15 +204,16 @@
     }
     /* Services Section */
     #services {
-      background: rgba(119,141,169,0.05);
-      border-radius: 15px;
-      padding: 3rem;
-      margin-bottom: 5rem;
+      /* Remove parent's semi-transparent background */
+      padding: 3rem 8%;
+      margin: 5rem 0;
+      text-align: center;
     }
     .service-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
+      justify-items: center;
     }
     .service-item {
       background: rgba(119,141,169,0.05);
@@ -212,6 +221,8 @@
       border-radius: 15px;
       text-align: center;
       transition: transform 0.3s ease;
+      width: 100%;
+      max-width: 300px;
     }
     .service-item:hover {
       transform: scale(1.05);
@@ -221,7 +232,7 @@
     }
     /* Skills Section */
     #skills {
-      padding: 3rem;
+      padding: 3rem 8%;
       margin-bottom: 5rem;
     }
     .skill-bar {
@@ -278,7 +289,7 @@
     }
     /* Blog Section */
     #blog {
-      padding: 3rem;
+      padding: 3rem 8%;
       margin-bottom: 5rem;
     }
     .blog-grid {
@@ -307,25 +318,28 @@
     }
     /* Publications Section */
     #publications {
-      padding: 3rem;
+      padding: 3rem 8%;
       margin-bottom: 5rem;
     }
     .publications {
       display: grid;
       gap: 2rem;
+      justify-items: center;
     }
     .publication-card {
       background: rgba(119,141,169,0.05);
       border-radius: 20px;
       padding: 1.5rem;
       transition: transform 0.3s ease;
+      width: 100%;
+      max-width: 400px;
     }
     .publication-card:hover {
       transform: translateY(-10px);
     }
     /* Contact Section */
     #contact {
-      padding: 3rem;
+      padding: 3rem 8%;
     }
     .contact-form {
       max-width: 600px;
@@ -397,7 +411,7 @@
       height: 100%;
       z-index: 1;
     }
-    /* Dots Animation Background (from original code) */
+    /* Dots Animation Background */
     .dots-animation {
       position: fixed;
       top: 0;
@@ -452,7 +466,7 @@
     </div>
   </nav>
 
-  <!-- Hero Section (Minimal grid layout from code 2) -->
+  <!-- Hero Section (Minimal grid layout) -->
   <section class="hero">
     <div class="centered-text">
       <div class="text-grid">
@@ -471,12 +485,12 @@
     <div class="bottom-text">( S C R L )</div>
   </section>
 
-  <!-- About Me Section -->
+  <!-- About Section -->
   <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I'm a creative developer and designer with a passion for merging technology and art. My work spans interactive media, immersive experiences, and digital design. I believe in crafting interfaces and projects that are not only visually striking but also deeply human and engaging.
-    </p>
+    <!-- Title will type in from right -->
+    <div class="about-title"></div>
+    <!-- Description will type in from left -->
+    <div class="about-description"></div>
   </section>
 
   <!-- Projects Section -->
@@ -643,9 +657,9 @@
       <button type="submit" class="submit-btn">Send Message</button>
     </form>
     <div class="social-links">
-      <a href="https://www.instagram.com/itstargazzing?igsh=ejgxdHVtdDk0c3d6" class="social-link">Instagram</a>
-      <a href="www.linkedin.com/in/dilara-caliskan-8b0572279" class="social-link">LinkedIn</a>
-      <a href="https://github.com/itstargazing" class="social-link">GitHub</a>
+      <a href="#" class="social-link">Instagram</a>
+      <a href="#" class="social-link">LinkedIn</a>
+      <a href="#" class="social-link">GitHub</a>
     </div>
   </section>
 
@@ -678,9 +692,65 @@
     }
     createDots();
 
-    // Initialize GSAP animations
+    // Typewriter effect function
+    function typeWriter(element, text, speed, onComplete) {
+      let i = 0;
+      element.innerHTML = "";
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        } else if (onComplete) {
+          onComplete();
+        }
+      }
+      type();
+    }
+
+    // Initialize GSAP animations and typewriter for About section
     gsap.registerPlugin(ScrollTrigger);
-    // Animate hero section
+
+    // Timeline for About section typewriter animations.
+    let aboutTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top center"
+      }
+    });
+
+    // Animate the title from right and start its typewriter effect.
+    aboutTimeline.to(".about-title", {
+      duration: 1,
+      x: 0,
+      opacity: 1,
+      ease: "power2.out",
+      onStart: () => {
+        // Start typewriter for the title text
+        typeWriter(document.querySelector(".about-title"), "ABOUT ME", 100);
+      }
+    });
+
+    // Then animate the description from left with a slight delay,
+    // starting its typewriter effect after the title finishes.
+    aboutTimeline.to(".about-description", {
+      duration: 1,
+      x: 0,
+      opacity: 1,
+      ease: "power2.out",
+      delay: 0.5,
+      onStart: () => {
+        const aboutDesc = document.querySelector(".about-description");
+        const descriptionText = `Hello everyone! I'm Dilara, a passionate enthusiast in Graphic Design, 3D modeling, and AI. I love blending art, programming, and web development to create innovative solutions.
+
+My goal is to make a significant contribution to the tech and digital art industry and create a positive impact on society through research, AI, and digital art. I always strive to create equal opportunities for children from financially unstable families, ensuring they have access to education and resources that can unlock their potential.
+
+I am passionate about developing projects that connect fields like AI and art, showcasing the incredible synergy between technology and creativity. By merging these disciplines, I aim to produce innovative solutions that not only advance the industry but also inspire and empower the next generation of creators and thinkers.`;
+        typeWriter(aboutDesc, descriptionText, 30);
+      }
+    });
+
+    // Animate other elements as before...
     gsap.from('.centered-text', {
       duration: 1,
       y: 100,
@@ -688,7 +758,6 @@
       ease: 'power4.out',
       delay: 0.5
     });
-    // Animate project cards
     gsap.from('.project-card', {
       scrollTrigger: {
         trigger: '#projects',
@@ -699,7 +768,6 @@
       opacity: 0,
       stagger: 0.2
     });
-    // Animate blog cards
     gsap.from('.blog-card', {
       scrollTrigger: {
         trigger: '#blog',
@@ -710,7 +778,6 @@
       opacity: 0,
       stagger: 0.2
     });
-    // Animate publication cards
     gsap.from('.publication-card', {
       scrollTrigger: {
         trigger: '#publications',
@@ -721,7 +788,6 @@
       opacity: 0,
       stagger: 0.2
     });
-    // Animate service items
     gsap.from('.service-item', {
       scrollTrigger: {
         trigger: '#services',
@@ -732,7 +798,6 @@
       opacity: 0,
       stagger: 0.2
     });
-    // Animate testimonials
     gsap.from('.testimonial', {
       scrollTrigger: {
         trigger: '#testimonials',
@@ -743,7 +808,6 @@
       opacity: 0,
       stagger: 0.2
     });
-    // Animate Skill Bars
     document.querySelectorAll('.skill-progress-inner').forEach(bar => {
       const target = bar.getAttribute('data-skill');
       gsap.to(bar, { duration: 1, width: target, ease: "power2.out", delay: 0.5 });
@@ -755,7 +819,6 @@
     const modalTitle = document.getElementById('modalTitle');
     const modalDetails = document.getElementById('modalDetails');
     const modalClose = document.getElementById('modalClose');
-
     projectCards.forEach(card => {
       card.addEventListener('click', () => {
         modalTitle.textContent = card.getAttribute('data-title');
@@ -777,14 +840,12 @@
     const ctx = canvas.getContext('2d');
     let particlesArray = [];
     const numberOfParticles = 80;
-
     function initCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = canvas.parentElement.clientHeight;
     }
     initCanvas();
     window.addEventListener('resize', initCanvas);
-
     class Particle {
       constructor() {
         this.x = Math.random() * canvas.width;
@@ -808,7 +869,6 @@
         ctx.fill();
       }
     }
-
     function initParticles() {
       particlesArray = [];
       for (let i = 0; i < numberOfParticles; i++) {
@@ -816,7 +876,6 @@
       }
     }
     initParticles();
-
     function animateParticles() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particlesArray.forEach(particle => {
